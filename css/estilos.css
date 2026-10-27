@@ -1,0 +1,764 @@
+/* VARIABLES */
+:root{
+    /* Colores */
+    --agua-claro: #c0e2e7;  /* fondo de la cabecera */
+    --tinta: #24525e;       /* textos y logo */
+    --fondo: #eef2f3;       /* fondo de la página */
+    --blanco: #ffffff;
+    --verde-azulado: #5a8a8f; /* botones*/
+    --fondo-hero: #e6f0f4;
+    --fondo-panel: #c9d8da;   /* fondo de formularios */
+    --error: #a33a3a;
+    --error-fondo: #f8e3e3;
+    --exito: #2f6e57;
+    --exito-fondo: #dff1e9;
+    
+    /* Tipografías */
+    --fuente-titulos: 'Playfair Display', Georgia, serif;
+    --fuente-texto: 'Montserrat', Arial, sans-serif;
+
+    /* Tamaños de letra */
+    --texto-pequeno: 0.85rem;   /* fechas, notas */
+    --texto-menu: 0.95rem;      /* enlaces del menú */
+    --texto-normal: 1rem;       /* párrafos */
+    --titulo-h2: 1.8rem;        /* títulos de sección: "NUESTRAS LÍNEAS" */
+    --titulo-h1: 2.4rem;        /* título grande de cada página */
+    --titulo-h2: 2.2rem;
+    --texto-logo: 2.6rem;       /* logo WÄTER */
+    --titulo-hero: 3rem;        /* título grande de la portada*/
+
+    --radio: 14px;              /* esquinas redondeadas */
+    --sombra: 0 6px 20px rgba(36, 82, 94, 0.12);  /* sombra suave de tarjetas */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;   /* el padding y el borde van DENTRO del ancho */
+}
+
+/* BASE */
+body{
+    margin: 0;
+    font-family: var(--fuente-texto);
+    color: var(--tinta);
+    background-color: var(--fondo);
+    line-height: 1.6; /* Más espacio entre las líneas de texto*/
+}
+
+a {
+    color: var(--tinta);
+}
+
+/* CABECERA */
+.cabecera{
+    background-color: var(--agua-claro);
+    text-align: center;
+    padding: 1rem 0 0.8rem;
+}
+
+img {
+    max-width: 100%;   /* una imagen nunca es más ancha que su caja */
+    display: block;    /* quita el huequito que deja debajo */
+}
+
+h1,h2,h3{
+    font-family: var(--fuente-titulos);
+    color: var(--tinta);
+    line-height: 1.2;
+    margin: 0 0 0 0.5e,;
+}
+
+.logo{
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-logo);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--tinta);
+    text-decoration: none;
+}
+
+/* MENU */
+.menu ul{
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.6rem 0 0;
+}
+
+.menu a{
+    display: block;
+    padding: 0.35rem 1.1em;
+    border-radius: 999px;
+    color: var(--tinta);
+    font-size: var(--texto-menu);
+    text-decoration: none;
+}
+
+.menu a:hover{
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
+.menu a.activo{
+    background-color: var(--tinta);
+    color: var(--blanco);
+}
+
+/* Botones  */
+.boton {
+    display: inline-block;
+    padding: 0.7em 1.8em;
+    border-radius: 999px;
+    background-color: var(--verde-azulado);
+    color: var(--blanco);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: var(--tinta);
+}
+
+/* HERO*/
+
+.hero{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--fondo-hero);
+}
+
+.hero-texto{
+    align-self: center;
+    padding: 3rem 3rem 3rem 8%;
+}
+
+.hero h1{
+    font-size: var(--titulo-hero);
+    font-weight: 700;
+}
+
+.hero p{
+    margin: 0 0 1.8em;
+    font-size: 1.05rem;
+}
+
+.hero-imagen {
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: cover;
+}
+
+.seccion{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1rem;
+}
+
+.titulo-seccion{
+    text-align: center;
+    font-size: var(--titulo-h2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+}
+
+/*pRIMERA SECCION*/
+.categorias{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+.categoria{
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.categoria img{
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.categoria-texto {
+    position: absolute;          /* encima de la foto... */
+    left: 0;
+    right: 0;
+    bottom: 0;                   /* ...pegado abajo */
+    padding: 3rem 1.2rem 1.2rem;
+    background: linear-gradient(transparent, rgba(36, 82, 94, 0.8));
+    text-align: center;
+}
+
+.categoria-texto h3 {
+    color: var(--blanco);
+    font-size: 1.9rem;
+    margin-bottom: 0.2em;
+}
+
+.categoria-texto p {
+    margin: 0;
+    color: var(--blanco);
+    font-size: 0.95rem;
+}
+
+/* 3. BEST SELLER*/
+.productos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1.5rem;
+}
+
+.producto{
+    overflow: hidden;
+    border-radius: var(--radio);
+    background-color: var(--agua-claro);
+    box-shadow: var(--sombra);
+}
+
+.producto h3 {
+    margin: 0;
+    font-family: var(--fuente-texto);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.producto img{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.producto-info{
+    padding: 1rem 1.2rem 1.3rem;
+}
+
+.producto-fila{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.etiqueta {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2b7d93;
+    white-space: nowrap; 
+}
+
+.producto-precio {
+    margin: 0.5em 0 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.producto-precio span {      
+    font-size: var(--texto-pequeno);
+    font-weight: 400;
+    color: var(--tinta-suave);
+}
+
+/* 4.Nacimos del agua*/
+.nosotros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(120deg, #dbe9f0, #eef4f7);
+}
+
+.nosotros img{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.nosotros-texto {
+    align-self: center;                /* centrado en vertical */
+    max-width: 540px;                  /* que las líneas no sean larguísimas */
+    padding: 3rem;
+}
+
+.nosotros-texto h2 {
+    font-size: var(--titulo-h1);
+    font-weight: 400;                  /* sin negrita */
+}
+
+/* NOvedades*/
+.novedades{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.novedad {
+    display: block;                /* el <a> se comporta como una caja */
+    padding-bottom: 1rem;
+    border-radius: var(--radio);
+    background-color: var(--blanco);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s;    /* el movimiento del hover es suave */
+}
+
+.novedad:hover {
+    transform: translateY(-4px);   /* sube 4px */
+}
+
+.novedad img {
+    width: 100%;
+    aspect-ratio: 16 / 10;         /* apaisada */
+    object-fit: cover;
+}
+
+.novedad .fecha {
+    margin: 1rem 1.2rem 0.3rem;
+    font-size: var(--texto-pequeno);
+    color: var(--tinta);
+}
+
+.novedad h3 {
+    margin: 0 1.2rem;
+    font-size: 1.25rem;
+}
+
+
+/* PIE DE PAGINA*/
+.pie{
+    background-color: #f0eff0;
+    padding: 3rem 1rem 1.5rem;
+}
+
+.pie-contenido{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pie-enlaces{
+    display: flex;
+    gap: 4rem;
+}
+
+.pie h2 {
+    font-family: var(--fuente-texto);  /* títulos pequeños sin serifa */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--tinta-suave);
+    margin: 0 0 0.8em;
+}
+
+.pie ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pie li {
+    margin-bottom: 0.6rem;
+}
+
+.pie a {
+    color: var(--tinta);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.pie a:hover {
+    text-decoration: underline;
+}
+
+.pie-marca {
+    text-align: center;
+}
+
+.pie .logo-pie {
+    font-size: 2rem;    /* el mismo .logo de la cabecera, más pequeño */
+}
+
+/* RRSS círculos oscuros con el icono blanco */
+.pie .redes {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1rem 0 2rem;
+}
+
+.redes a {
+    display: flex;
+    align-items: center;               
+    justify-content: center;          
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;               
+    background-color: var(--tinta);
+}
+
+.redes svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--blanco); 
+}
+
+/* Newsletter */
+.newsletter {
+    text-align: left;
+}
+
+.newsletter label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--tinta-suave);
+}
+
+.newsletter-fila {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.newsletter input {
+    width: 240px;
+    padding: 0.4em 0;
+    border: none;
+    border-bottom: 1px solid var(--tinta);   
+    background: transparent;
+    font: inherit;                           
+    color: var(--tinta);
+}
+
+.newsletter button {
+    border: none;
+    background: none;
+    padding: 0.4em 0;
+    color: var(--tinta);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;                        
+}
+
+/* Línea y copyright */
+.pie-copy {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.2rem;
+    border-top: 1px solid #9fb7bc;     /* la línea de arriba */
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--tinta-suave);
+}
+
+/* Pagina NOTICIAS*/
+.cabecera-pagina{
+    padding: 3rem 1rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg,#dcecef,var(--fondo));
+}
+
+.cabecera-pagina h1{
+    font-size: var(--titulo-h1);
+}
+
+.cabecera-pagina p{
+    margin: 0;
+    color: var(--tinta-suave);
+}
+
+.lista-noticias{
+    display: grid;
+    gap: 2rem;
+}
+
+.noticia{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    overflow: hidden;
+    border-radius: var(--radio);
+    background-color: var(--blanco);
+    box-shadow: var(--sombra);
+}
+
+.noticia img{
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+}
+
+.noticia-cuerpo {
+    padding: 2rem;
+}
+
+.noticia-meta {
+    margin: 0 0 0.6em;
+    font-size: 0.9rem;
+    color: var(--tinta-suave);
+}
+
+.noticia h2 {
+    font-size: 1.8rem;
+}
+
+.vacio {
+    text-align: center;
+    color: var(--tinta-suave);
+}
+
+/* ---------- Paneles (fondo + caja del formulario) ---------- */
+.panel-fondo {
+    padding: 3rem 1rem;
+    background-color: var(--fondo-panel);
+}
+
+.panel {
+    padding: 2.2rem;
+    background-color: var(--fondo);
+    border-radius: 6px;
+}
+
+.panel-ancho {
+    max-width: 760px;              /* para formularios largos (registro, perfil) */
+    margin: 0 auto;
+}
+
+.panel-estrecho {
+    max-width: 440px;              /* para formularios cortos (login) */
+    margin: 0 auto;
+}
+
+.panel h1 {
+    font-size: var(--titulo-h2);
+}
+
+.panel-intro {
+    margin-top: -0.3em;
+    color: var(--tinta-suave);
+}
+
+/*  Formularios */
+.formulario fieldset {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    border: none;                 
+}
+
+.formulario legend {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.fila-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* dos campos por fila */
+    gap: 0 1.2rem;                    
+}
+
+.campo {
+    margin-bottom: 1.1rem;
+}
+
+.campo label {
+    display: block;                /* la etiqueta encima del campo */
+    margin-bottom: 0.35em;
+    font-size: 0.95rem;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.6em 0.8em;
+    border: 1px solid #a9bfc2;
+    border-radius: 8px;
+    background-color: var(--fondo-panel);
+    color: var(--tinta);
+    font: 1rem var(--fuente-texto);
+}
+
+/* Cuando haces clic dentro de un campo */
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    background-color: var(--blanco);
+    border-color: var(--verde-azulado);
+    outline: none;                                 /* quita el borde azul del navegador */
+    box-shadow: 0 0 0 3px rgba(90, 138, 143, 0.25); /* y pone un halo suave */
+}
+
+.nota {
+    font-size: 0.82rem;
+    color: var(--tinta-suave);
+}
+
+/* Avisos (errores y mensajes de "todo bien") */
+.aviso {
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.2rem;
+    border-left: 5px solid;        /* raya gorda a la izquierda, del color del texto */
+    border-radius: 8px;
+}
+
+ul.aviso {
+    padding-left: 2.4rem;          /* sitio para los puntitos de la lista */
+}
+
+.aviso-error {
+    background-color: var(--error-fondo);
+    color: var(--error);
+}
+
+.aviso-exito {
+    background-color: var(--exito-fondo);
+    color: var(--exito);
+}
+
+/* aviso suelto en la portada (mensaje de login) */
+.aviso-portada {
+    max-width: 1200px;
+    width: calc(100% - 2rem);   
+    margin: 1.5rem auto;        
+}
+
+/* Dos paneles en columnas */
+.columnas-panel {
+    display: grid;
+    grid-template-columns: 2fr 1fr;    
+    align-items: start;                
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.panel h2 {
+    font-size: 1.6rem;
+}
+
+/*Tablas */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;         
+    font-size: 0.95rem;
+}
+
+.tabla th {
+    padding: 0.7em;
+    text-align: left;
+    border-bottom: 2px solid var(--tinta);
+}
+
+.tabla td {
+    padding: 0.7em;
+    border-bottom: 1px solid #c8d6d8;
+    vertical-align: middle;
+}
+
+/* Botones de cada fila: Modificar y Borrar uno al lado del otro */
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.boton-mini {
+    display: inline-block;
+    padding: 0.3em 0.9em;
+    border: 1px solid var(--tinta);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--tinta);
+    font: 500 0.85rem var(--fuente-texto);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton-mini:hover {
+    background-color: var(--tinta);
+    color: var(--blanco);
+}
+
+.boton-peligro {                       /* el de borrar, en rojo */
+    border-color: var(--error);
+    color: var(--error);
+}
+
+.boton-peligro:hover {
+    background-color: var(--error);
+}
+
+/* Botón principal + "Cancelar" en la misma línea */
+.botones-form {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.campo textarea {
+    resize: vertical;      /* solo se puede estirar hacia abajo */
+}
+
+/*Uusuarios-administracin*/
+/* Panel a todo el ancho */
+.panel-completo {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+}
+
+/* Si la tabla no cabe en pantallas pequeñas, se desliza a los lados en vez de romper la página */
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+/* Etiqueta del rol */
+.rol {
+    display: inline-block;
+    padding: 0.15em 0.7em;
+    border-radius: 999px;
+    background-color: var(--fondo-panel);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.rol-admin {
+    background-color: var(--tinta);
+    color: var(--blanco);
+}
+
+/*  Subir imagen 
+Noticias admin  */
+.fila-imagen {
+    display: flex;
+    align-items: flex-end;         /* el campo alineado con la parte de abajo de la foto */
+    gap: 1.2rem;
+}
+
+.fila-imagen .campo {
+    flex: 1;                       /* el campo ocupa todo el espacio que deja la foto */
+}
+
+.vista-previa {
+    width: 180px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.1rem;         /* el mismo espacio de debajo que .campo */
+}
+
+.campo input[type=file] {
+    background-color: var(--blanco);   /* solo los input de tipo archivo */
+}
